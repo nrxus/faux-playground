@@ -24,7 +24,7 @@ mod tests {
     #[test]
     fn it_works() {
         let mut faked = MyStruct::faux();
-        when!(faked.my_method).safe_then(|_| 3);
+        when!(faked.my_method).then(|_| 3);
         let fetched = futures::executor::block_on(faked.my_method());
         assert_eq!(fetched, 3);
     }
